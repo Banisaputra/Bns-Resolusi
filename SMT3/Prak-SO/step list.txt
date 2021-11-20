@@ -1,0 +1,35 @@
+#persiapan lingkungan kerja
+extrac file OS di directory C:
+jalankan command prompt
+masuk ke directory kerja C:\OS\
+jalankan file setpath.bat dengan mengetikan 'setpath'
+(lakukan hal ini setiap melakukan kegiatan praktikum)
+
+#melihat isi directory kerja
+masuk ke directory C:\OS\LAB\LAB1
+make fp.disk
+
+	##membuat boot.bin manual
+	nasm boot.asm -o boot.bin -f bin
+	dd if=boot.bin of=floppya.img
+
+	##menghapus file *.bin
+	make clean
+
+#mengenal boot disk
+del floppya.img /P
+bximage
+(hd for harddisk; fd for floppya image)
+DosFp
+
+#melihat data dalam boot sector
+dd if=floppya.img of=boots.bin count=1
+debug boots.bin atau
+tdump boots.bin
+
+#boot pc simulator dengan file image
+type s.bat
+s
+DosFp
+format B:/S
+
