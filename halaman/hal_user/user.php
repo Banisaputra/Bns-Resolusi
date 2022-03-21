@@ -217,7 +217,8 @@ else{
     case "edituser":
       $query = "SELECT * FROM user WHERE id_user='$_GET[id]'";
       $hasil = mysqli_query($konek, $query);
-      $r     = mysqli_fetch_array($hasil);
+      $r = mysqli_fetch_array($hasil);
+      $id_prodi = $_SESSION['id_prodi'];
 
       echo" <div class='row'>
     <div class='col-xs-12'>
@@ -257,11 +258,14 @@ else{
                               <label for='form-field-8'>Pilih prodi</label>
                               <select name=\"id_prodi\" class='form-control' required='required'>";
            
-          if ($r['id_prodi']==0){
+          if($r['id_prodi']==0){
             echo "<option value='' selected>- Pilih prodi -</option>";
-          }   
-
-          $query2 = "SELECT * FROM prodi ORDER BY nama_prodi";
+          }
+            
+          if($_SESSION['leveluser']=='superAdm'){
+            $query2 = "SELECT * From prodi ORDER BY nama_prodi";
+          }
+          $query2 = "SELECT * FROM prodi WHERE id_prodi = '$id_prodi' ORDER BY nama_prodi";
           $tampil = mysqli_query($konek, $query2);
 
           while($w=mysqli_fetch_array($tampil)){
@@ -285,8 +289,10 @@ else{
           if ($r['level']==0){
             echo "<option value='' selected>- Pilih Level -</option>";
           }   
-
-          $query2 = "SELECT * FROM level ORDER BY level";
+          if($_SESSION['leveluser']=='superAdm'){
+            $query2 = "SELECT * FROM level ORDER BY level";
+          }
+          $query2 = "SELECT * FROM level WHERE id_level=2 || id_level=3 ORDER BY level";
           $tampil = mysqli_query($konek, $query2);
 
           while($w=mysqli_fetch_array($tampil)){
