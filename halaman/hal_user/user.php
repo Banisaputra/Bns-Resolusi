@@ -158,7 +158,8 @@ else{
                               <label>Pilih prodi</label>
                               <select name=\"id_prodi\" class='form-control' required='required'>
             <option value='' selected>- Pilih prodi -</option>";
-            $query  = "SELECT * FROM prodi ORDER BY nama_prodi";
+            $id_prodi=$_SESSION['id_prodi'];
+            $query  = "SELECT * FROM prodi WHERE id_prodi = '$id_prodi' ORDER BY nama_prodi";
             $tampil = mysqli_query($konek, $query);
             while($r=mysqli_fetch_array($tampil)){
               echo "<option value=\"$r[id_prodi]\">$r[nama_prodi]</option>";
