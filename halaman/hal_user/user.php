@@ -116,8 +116,9 @@ else{
     
       $query = "select max(id_user) as maksi from user";
       $hasil = mysqli_query($konek, $query);
-      $data_oto  = mysqli_fetch_array($hasil);
-      $kode_user=buatkode($data_oto['maksi'], 'US', 3);
+      $data_oto = mysqli_fetch_array($hasil);
+      $kode_user = buatkode($data_oto['maksi'], 'US', 3);
+      $id_prodi = $_SESSION['id_prodi'];
 	  
 
     echo" <div class='row'>
@@ -158,7 +159,9 @@ else{
                               <label>Pilih prodi</label>
                               <select name=\"id_prodi\" class='form-control' required='required'>
             <option value='' selected>- Pilih prodi -</option>";
-            $id_prodi=$_SESSION['id_prodi'];
+            if($_SESSION['leveluser']=='superAdm'){
+              $query = "SELECT * FRom prodi ORDER BY nama_prodi";
+            }
             $query  = "SELECT * FROM prodi WHERE id_prodi = '$id_prodi' ORDER BY nama_prodi";
             $tampil = mysqli_query($konek, $query);
             while($r=mysqli_fetch_array($tampil)){
@@ -172,7 +175,10 @@ else{
                               <label>Pilih Level</label>
                               <select name=\"level\" class='form-control' required='required'>
             <option value='' selected>- Pilih Level -</option>";
-            $query  = "SELECT * FROM level ORDER BY level";
+            if($_SESSION['leveluser']=='superAdm'){
+              $query = "SELECT * FROM level ORDER BY level";
+            }
+            $query  = "SELECT * FROM level WHERE id_level = 2 || id_level = 3 ORDER BY level";
             $tampil = mysqli_query($konek, $query);
             while($r=mysqli_fetch_array($tampil)){
               echo "<option value=\"$r[level]\">$r[level]</option>";
