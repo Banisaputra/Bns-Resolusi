@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <script language='JavaScript'>
+var txt="Election RentCar - New solution about your transportation";
+var speed=300;
+var refresh=null;
+function action() { 
+document.title=txt;
+txt=txt.substring(1,txt.length)+txt.charAt(0);
+refresh=setTimeout("action()",speed);
+}
+action();
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript">
+ window.onload = function() { jam(); }
+
+ function jam() {
+  var e = document.getElementById('jam'),
+  d = new Date(), h, m, s;
+  h = d.getHours();
+  m = set(d.getMinutes());
+  s = set(d.getSeconds());
+
+  e.innerHTML = h +':'+ m +':'+ s;
+
+  setTimeout('jam()', 1000);
+ }
+
+ function set(e) {
+  e = e < 10 ? '0'+ e : e;
+  return e;
+ }
+</script>
+<script language="JavaScript" >
+    var tanggallengkap = new String();
+    var namahari = ("Minggu Senin Selasa Rabu Kamis Jumat Sabtu");
+    namahari = namahari.split(" ");
+    var namabulan = ("Januari Februari Maret April Mei Juni Juli Agustus September Oktober November Desember");
+    namabulan = namabulan.split(" ");
+    var tgl = new Date();
+    var hari = tgl.getDay();
+    var tanggal = tgl.getDate();
+    var bulan = tgl.getMonth();
+    var tahun = tgl.getFullYear();
+    tanggallengkap = namahari[hari] + ", " +tanggal + " " + namabulan[bulan] + " " + tahun;
+    </script>
+  </head>
+  <body>
+    
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">election<span>road</span></a>
+		  <h1 class="navbar-brand" style="font-size: 25px; font-family: comic sans ms;" id="jam"></h1>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+<h1 class="navbar-brand" style="font-size: 15px; font-family: berlin sans;"><script language='JavaScript' >document.write(tanggallengkap);</script></h1>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
+	          <li class="nav-item"><a href="car.html" class="nav-link">Our Car</a></li>
+	          <li class="nav-item active"><a href="blog.html" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+    
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+          <div class="col-md-9 ftco-animate pb-5">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="blog.html">Blog <i class="ion-ios-arrow-forward"></i></a></span> <span>Blog Single <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-3 bread">Read our blog</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section ftco-degree-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 order-md-last ftco-animate">
+            <h2 class="mb-3">Sejarah sewa mobil</h2>
+            <p>Di zaman yang serba canggih ini, muncul berbagai jenis bisnis baru di tengah masyarakat.
+			 Sebagian merupakan bisnis yang benar-benar baru, sedangkan sebagian yang lainnya merupakan transformasi dari bisnis lama. 
+			 Salah satu bisnis baru yang bertransformasi di era ini adalah bisnis sewa mobil.
+			 Rental mobil atau jasa sewa mobil adalah sebuah perusahaan yang menyediakan mobil untuk disewa dengan jangka waktu tertentu, 
+			 mulai dari hitungan jam sampai hari,bahkan sekarang bisa sampai mingguan.</p>
+			<P>
+			 Perusahaan jenis ini biasanya memiliki beberapa cabang atau anak cabang yang terletak di beberapa kota besar. 
+			 Kebanyakan berlokasi di beberapa pusat keramaian atau pusat kota, bandara, stasiun, dan tempat wisata. 
+			 Penyedia jasa rental mobil biasanya juga menyediakan jasa sopir yang semakin memudahkan para pelanggan. 
+			 Dahulu di Negara-negara besar di Benua Eropa, kuda dan kereta menjadi alat transportasi utama yang cukup canggih. 
+			 Kuda dan kereta menjadi penyangga berbagai kehidupan masyarakat.</p>
+			<p>
+			 Sedangkan di sisi lain produksi mobil masih sangat terbatas, karena tekhnik produksinya masih tradisional dan harganya masih sangat mahal. 
+			 Sehingga mobil menjadi sebuah barang mewah yang hanya dimiliki oleh kalangan tertentu saja.
+			 Sehingga, bagi siapa saja yang ingin menggunakan mobil harus menyewanya dari beberapa penyedia jasa sewa mobil.</p>
+			
+			 
+			</p>
+            <p>
+              <img src="images/image_7.jpg" alt="" class="img-fluid">
+            </p>
+            <p>Menurut sumber yang ada, praktek penyewaan mobil sudah dimulai sejak tahun 1906. Di tahun 1912, muncul sebuah perusahaan Jerman bernama Sixt yang menyediakan tiga buah mobil untuk disewakan. 
+			 Pada tahun 1917, seorang pengusaha bernama Joe Saunders berasal dari Omaha, Nebraska memulai usaha rental mobilnya dengan menyewakan sebuah mobil model jenis T Ford di tahun 1916. 
+			 Setahun kemudian, pada tahun 1917 perusahaannya yang bernama Ford Livery berkembang dan mampu menyewakan 18 model mobil Ts dengan harga sewa 10 sen permile. 
+			 Selanjutnya perusahaannya yang telah lama dirintisnya berubah nama menjadi Saunders Drive-It-Yourself System dan kemudian menjadi Saunders System. 
+			 Akhirnya pada tahun 1926 perusahaan sewa ini mampu mengekspansi 56 kota dan pada tahun 1955 dibeli oleh Avis.</p>
+			 
+            <h2 class="mb-3 mt-5">Election Rent Car</h2>
+            <p>Penyewaan mobil election rent car didirikan pada tahun 2025 di Jakarta. 
+			Iklan dan mobil yang efektif sudah ada pada tahun 2020 sebelum secara resmi menjadi sebuah perseroan terbatas.  
+			Election rent car dikelola langsung oleh pelopor perusahaan kami dengan pengetahuan dan pengalaman di bidang transportasi. 
+			Semangat, profesionalisme, dedikasi dan pengalaman para pendiri ini menjadi dasar manajemen penyewaan mobil /election rent car, 
+			dengan dukungan keinginan kami untuk selalu menjadi perusahaan penyewaan dan pertumbuhan terbaik.
+			</p>
+            <p>
+              <img src="images/rent.jpg" alt="" class="img-fluid">
+            </p>
+            <p>Transportasi saat ini adalah suatu keharusan dan sangat dituntut dalam dinamika kehidupan untuk pribadi maupun keluarga dan bisnis. 
+			Transportasi juga dibutuhkan oleh banyak pihak, baik perorangan maupun perusahaan melalui berbagai pertimbangan, 
+			menjadikan Election rent car perusahaan rental mobil yang sangat dibutuhkan.</p>
+			<p>Election rent car didirikan untuk memberikan solusi terbaik bagi semua orang yang membutuhkan transportasi (kendaraan) dengan sistem sewa dan layanan terbaik serta nilai manfaat maksimum.</p>
+	<h2 class="mb-3">Terms & Condition</h2>
+	<ul style="square">
+	
+		<li>Domestik</li>
+	<ol type="1">
+		<li>Perusahaan</li>
+		<ol type="a">
+			<li>Salinan: SIUP, NPWP, TDP, Domisili Perusahaan</li>
+			<li>Salinan: Direktur Kartu ID dan Kartu Nama Manajer</li>
+			<li>Salinan: SIM</li>
+			<li>Pengguna Kartu Nama</li>
+			</ol>
+		<li>Pribadi</li>
+		<ul type="square">
+				<li>Kartu identitas</li>
+				<li>Kartu Keluarga</li>
+				<li>Tagihan Telepon / Tagihan Listrik</li>
+				<li>Gedung Pajak</li>
+				<li>Referensi Surat Kerja dari perusahaan Anda</li>
+				<li>Kartu nama</li></ul></ol>
+		<li>Luar Negeri</li>
+	<ol type="1">
+		<li>pribadi</li>
+		<ul style="bullet">
+			<li>Paspor</li>
+			<li>KITAS</li>
+			<li>Surat ijin Mengemudi</li>
+				</ul></ol>
+			</ul></br>
+<center><font face="typo slab" size="3" color="red"><marquee scrollamount="15">Enjoy Your Ride</marquee></font></center>
+
+<hr/>
+<dl>
+	<dt>Ketentuan Lain :</dt>
+		<dd>Plus Deposit untuk Insruance Deductible dan Returnable.
+		<dd>Silakan kirim dokumen melalui email / faks dan bisa datang langsung ke kantor .
+		<dd>Semua dokumen di atas harus valid untuk kontrak.
+		
+<p><table border="1" width="100% height="auto">
+
+        <caption align="bottom">Tabel 1. beberapa daftar mobil </caption>
+        <tr align="center">
+            <th>Type</th>
+            <th>Per Hour Rate</th>
+			<th>Per Day Rate</th>
+			<th>Leasing</th>
+        </tr>
+        <tr align="center">
+            <td>Mazda 2 GT</td>
+            <td>Rp.90.000,-</td>
+			<td>Rp.360.000,-</td>
+			<td>Rp.6.000.000,-</td>
+        </tr>
+			<tr align="center">
+				<td>Honda B-rv</td>
+				<td>Rp.105.000,-</td>
+				<td>RP.450.000,-</td>
+				<td>RP.7.650.000,-</td>
+			</tr>
+				<tr align="center">
+					<td>Honda MobilioR</td>
+					<td>RP.90.000,-</td>
+					<td>RP.405.000,-</td>
+					<td>RP.6.810.000,-</td>
+				</tr>
+					<tr align="center">
+						<td>Honda Jazz</td>
+						<td>RP.90.000,-</td>
+						<td>RP.360.000,-</td>
+						<td>RP.6.000.000,-</td>
+					</tr>
+		<tr align="center">
+            <td>Toyota Yaris</td>
+            <td>RP.90.000,-</td>
+			<td>RP.405.000,-</td>
+			<td>RP.6.810.000,-</td>
+        </tr>
+			<tr align="center">
+				<td>Toyota Alphard</td>
+				<td>RP.165.000,-</td>
+				<td>RP.705.000,-</td>
+				<td>RP.11.925.000,-</td>
+			</tr></table>
+			
+
+			<div class="tag-widget post-tag-container mb-5 mt-5">
+              <div class="tagcloud">
+                <a href="#" class="tag-cloud-link">Life</a>
+                <a href="#" class="tag-cloud-link">Sport</a>
+                <a href="#" class="tag-cloud-link">Tech</a>
+                <a href="#" class="tag-cloud-link">Travel</a>
+              </div>
+            </div>
+     <!--comment-->
+            <div class="about-author d-flex p-4 bg-light">
+              <div class="bio mr-5">
+                <img src="images/person_1.jpg" alt="Image placeholder" class="img-fluid mb-4">
+              </div>
+              <div class="desc">
+                <h3>Kevin</h3>
+                <p>sudah beberapa kali menggunakan jasa election rent car dan selalu puas dengan pelayanannya,
+					proses order mudah dan lancar,kondisi kendaraan sangat baik interiornya keren dan harum,
+					untuk drivernya juga ramah dan sopan, cara berkendara juga aman, recommended pokoknya buat yang mau travel.</p>
+				</div>
+            </div>
+
+
+            <div class="pt-5 mt-5">
+              <h3 class="mb-5">6 Comments</h3>
+              <ul class="comment-list">
+                <li class="comment">
+                  <div class="vcard bio">
+                    <img src="images/pake.jpg" alt="Image placeholder">
+                  </div>
+                  <div class="comment-body">
+                    <h3>Setyo Aji</h3>
+                    <div class="meta">October 03, 2019 at 2:21pm</div>
+                    <p>terima kasih atas pelayanan driver selama 3hari dijogja,drivernya ramah dan sopan,
+					selalu siap mengantar ketempat wisata ishaallah kalo kejogja akan hubungi election rent car lagi.</p>
+                    <p><a href="#" class="reply">Reply</a></p>
+                  </div>
+                </li>
+
+                <li class="comment">
+                  <div class="vcard bio">
+                    <img src="images/ayu.jpg" alt="Image placeholder">
+                  </div>
+                  <div class="comment-body">
+                    <h3>Ayu putri</h3>
+                    <div class="meta">October 03, 2019 at 2:21pm</div>
+                    <p>adminnya ramah walaupun saya sering tanya-tanya ,ketepatan waktu saat penjemputan,
+					harga terjangkau dan terjamin, terima kasih election rent car.</p>
+                    <p><a href="#" class="reply">Reply</a></p>
+                  </div>
+
+                  <ul class="children">
+                    <li class="comment">
+                      <div class="vcard bio">
+                        <img src="images/roger.jpg" alt="Image placeholder">
+                      </div>
+                      <div class="comment-body">
+                        <h3>Ilham kurniawan</h3>
+                        <div class="meta">October 03, 2019 at 2:21pm</div>
+                        <p>Terima kasih sudah antar saya ke Bali. Saya sudah pakai Election Rent Car yg ke-5 kali.pelayanan nya tetap bagus,
+					memuaskan. Besok kalau ke Bali lagi saya pakai Election Rent Car lagi, pasti nya saya rekomedasi ke temen- temen kalo ke Bali 
+					untuk menghubungi Election rent car.</p>
+                        <p><a href="#" class="reply">Reply</a></p>
+                      </div>
+
+
+                      <ul class="children">
+                        <li class="comment">
+                          <div class="vcard bio">
+                            <img src="images/person_4.jpg" alt="Image placeholder">
+                          </div>
+                          <div class="comment-body">
+                            <h3>John Doe</h3>
+                            <div class="meta">October 03, 2019 at 2:31pm</div>
+                            <p>Thank you for taking me to Bali. I have used the Election Rent Car for the fifth time. The service is still good,satisfying. 
+							Tomorrow if I go to Bali again I use Election Rent Car again, I will definitely recommend it to my friends 
+							if I go to Bali to contact Election rent car.</p>
+                            <p><a href="#" class="reply">Reply</a></p>
+                          </div>
+
+                            <ul class="children">
+                              <li class="comment">
+                                <div class="vcard bio">
+                                  <img src="images/shela.jpg" alt="Image placeholder">
+                                </div>
+                                <div class="comment-body">
+                                  <h3>Angelia</h3>
+                                  <div class="meta">October 08, 2019 at 4:11pm</div>
+                                  <p>Thank you, Election Rent Car. Me and my friends can have year-end and new-year holidays in the city 
+								  of Cirebon with satisfaction and comfortable. 
+								  the driver is patient and polite. Tomorrow if I need more I will let you know and it will be me 
+								  Recommendation for friends</p>
+                                  <p><a href="#" class="reply">Reply</a></p>
+                                </div>
+                              </li>
+                            </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="comment">
+                  <div class="vcard bio">
+                    <img src="images/person_3.jpg" alt="Image placeholder">
+                  </div>
+                  <div class="comment-body">
+                    <h3>Robert</h3>
+                    <div class="meta">October 10, 2019 at 12:21pm</div>
+                    <p>Terima kasih, Election Rent Car. Saya dan teman-teman bisa liburan akhir tahun dan tahun baru di Kota Cirebon dengan puas
+					dan nyaman. sopir nya sabar dan sopan. Besok kalau saya butuh lagi akan saya kabari dan pasti nya saya 
+					rekomendasi kan untuk teman teman</p>
+                    <p><a href="#" class="reply">Reply</a></p>
+                  </div>
+                </li>
+              </ul>
+              <!-- END comment-list -->
+              
+              <div class="comment-form-wrap pt-5">
+                <h3 class="mb-5">Leave a comment</h3>
+                <form action="#" class="p-5 bg-light">
+                  <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" class="form-control" id="name">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" class="form-control" id="email">
+                  </div>
+                  <div class="form-group">
+                    <label for="website">Website</label>
+                    <input type="url" class="form-control" id="website">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary">
+                  </div>
+
+                </form>
+              </div>
+            </div>
+
+          </div> <!-- .col-md-8 -->
+          <div class="col-md-4 sidebar ftco-animate">
+            <div class="sidebar-box">
+              <form action="#" class="search-form">
+                <div class="form-group">
+                  <span class="icon icon-search"></span>
+                  <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
+                </div>
+              </form>
+            </div>
+            <div class="sidebar-box ftco-animate">
+              <div class="categories">
+                <h3>Categories</h3>
+                <li><a href="#">Jobs <span>(12)</span></a></li>
+                <li><a href="#">Visual Assistant <span>(22)</span></a></li>
+                <li><a href="#">Coffee <span>(37)</span></a></li>
+                <li><a href="#">Drinks <span>(42)</span></a></li>
+                <li><a href="#">Foods <span>(14)</span></a></li>
+                <li><a href="#">Travel <span>(140)</span></a></li>
+              </div>
+            </div>
+
+            <div class="sidebar-box ftco-animate">
+              <h3>Recent Blog</h3>
+              <div class="block-21 mb-4 d-flex">
+                <a class="blog-img mr-4" style="background-image: url(images/civic2.jpg);"></a>
+                <div class="text">
+                  <h3 class="heading"><a href="#">Even very luxurious cars also have efficient fuel consumption</a></h3>
+                  <div class="meta">
+                    <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
+                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="block-21 mb-4 d-flex">
+                <a class="blog-img mr-4" style="background-image: url(images/alphard.jpg);"></a>
+                <div class="text">
+                  <h3 class="heading"><a href="#">Family car with complete specifications</a></h3>
+                  <div class="meta">
+                    <div><a href="#"><span class="icon-calendar"></span> July 22, 2018</a></div>
+                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                    <div><a href="#"><span class="icon-chat"></span> 10</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="block-21 mb-4 d-flex">
+                <a class="blog-img mr-4" style="background-image: url(images/hazumi.jpg);"></a>
+                <div class="text">
+                  <h3 class="heading"><a href="#">Even the city car class can be accessed easily</a></h3>
+                  <div class="meta">
+                    <div><a href="#"><span class="icon-calendar"></span> July 28, 2018</a></div>
+                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                    <div><a href="#"><span class="icon-chat"></span> 26</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sidebar-box ftco-animate">
+              <h3>Tag Cloud</h3>
+              <div class="tagcloud">
+                <a href="#" class="tag-cloud-link">dish</a>
+                <a href="#" class="tag-cloud-link">menu</a>
+                <a href="#" class="tag-cloud-link">food</a>
+                <a href="#" class="tag-cloud-link">sweet</a>
+                <a href="#" class="tag-cloud-link">tasty</a>
+                <a href="#" class="tag-cloud-link">delicious</a>
+                <a href="#" class="tag-cloud-link">desserts</a>
+                <a href="#" class="tag-cloud-link">drinks</a>
+              </div>
+            </div>
+
+            <div class="sidebar-box ftco-animate">
+              <h3>Paragraph</h3>
+              <p>Transportasi saat ini adalah suatu keharusan dan sangat dituntut dalam dinamika kehidupan untuk pribadi maupun keluarga dan bisnis.
+				Transportasi juga dibutuhkan oleh banyak pihak, baik perorangan maupun perusahaan melalui berbagai pertimbangan, 
+				menjadikan ELECTION RENT CAR perusahaan rental mobil yang memberikan solusi terbaru.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section> <!-- .section -->
+
+ <!--FOOTER-->
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">About ElectionRoad</h2>
+              <p>Sebuah perusahaan dimana bergerak dibidang otomotif,yang memberikan pelayanan jasa berupa rental mobil dan kendaraan travel..</p>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li class="ftco-animate"><a href="https://WWW.TWETTER.COM"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="https://WWW.FACEBOOK.COM"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="https://WWW.INSTAGRAM.COM"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-5">
+              <h2 class="ftco-heading-2">Information</h2>
+              <ul class="list-unstyled">
+                <li><a href="about.html" class="py-2 d-block">About</a></li>
+                <li><a href="#services" class="py-2 d-block">Services</a></li>
+                <li><a href="#" class="py-2 d-block">Term and Conditions</a></li>
+                <li><a href="#" class="py-2 d-block">Best Price Guarantee</a></li>
+                <li><a href="#" class="py-2 d-block">Privacy &amp; Cookies Policy</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Customer Support</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">FAQ</a></li>
+                <li><a href="#" class="py-2 d-block">Payment Option</a></li>
+                <li><a href="#" class="py-2 d-block">Booking Tips</a></li>
+                <li><a href="#" class="py-2 d-block">How it works</a></li>
+                <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon icon-map-marker"></span><span class="text">Mendungan, Pabelan, Kec. Kartasura, Kabupaten Sukoharjo, Jawa Tengah 57169, INDONESIA</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+62 392 3929 210</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">electionrentcar@gmail.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="#" target="_blank">ElectionCustom</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
+    
+  </body>
+</html>
