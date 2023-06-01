@@ -1,0 +1,106 @@
+
+dokter
+- id_dokter
+- nama_dokter
+- alamat
+- spesialis
+
+pasien
+- no pasien
+- nama_pasien
+- alamat
+- tanggla_lahir
+
+obat
+- no_obat
+- nama_obat
+- jenis_obat
+- harga
+
+konsultasi
+- keluhan
+- gejala
+- solusi
+
+resep obat 1:n obat
+obat 1:n pasien
+dokter 1:n pasien
+
+
+
+
+
+
+CREATE database Rumah_Sakit;
+CREATE TABLE dokter (
+id_dokter INTEGER PRIMARY KEY,
+nama_dokter VARCHAR(25),
+alamat VARCHAR(45),
+spesialis VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE obat (
+no_obat INTEGER PRIMARY KEY,
+nama_obat VARCHAR(20),
+jenis_obat VARCHAR(20),
+harga_obat INTEGER,
+id_dokter INTEGER REFERENCES dokter(id_dokter)
+ON DELETE SET NULL ON UPDATE CASCADE
+);
+
+CREATE TABLE pasien (
+no_pasien INTEGER PRIMARY KEY,
+nama_pasien VARCHAR(25),
+tanggal_lahir DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+alamat VARCHAR(45),
+id_dokter INTEGER,
+no_obat INTEGER,
+FOREIGN KEY(id_dokter) REFERENCES dokter(id_dokter),
+FOREIGN KEY(no_obat) REFERENCES obat(no_obat)
+);
+
+CREATE TABLE konsultasi (
+keluhan VARCHAR(60),
+gejala VARCHAR(60),
+solusi VARCHAR(60),
+id_dokter INTEGER,
+no_pasien INTEGER,
+no_obat INTEGER,
+FOREIGN KEY(id_dokter) REFERENCES dokter(id_dokter),
+FOREIGN KEY(no_pasien) REFERENCES pasien(no_pasien),
+FOREIGN KEY(no_obat) REFERENCES obat(no_obat)
+);
+
+
+INSERT INTO dokter(id_dokter,nama_dokter,alamat,spesialis)VALUE
+(1,"Budi Setyo","Kartasura","Tulang"),
+(2,"Cahyo Utomo","Boyolali","Anak"),
+(3,"Elda Putri","Yogyakarta","Kulit"),
+(4,"Erdi Saputro","Kartasura","Mata"),
+(5,"Budianto","Wonogiri","THT");
+
+INSERT INTO obat(no_obat,nama_obat,jenis_obat,harga_obat,id_dokter)VALUE
+(110,"Ciprofloxacin","antibiotik",15000,2),
+(111,"Neomycin","tetes",25000,4),
+(112,"Dopamin","vaksin",35000,5),
+(113,"Ibuprofen","anti nyeri",20000,1),
+(114,"Triprolidine","sirup",25000,2),
+(115,"Hidrokortison","krim",30000,3),
+(116,"Amoxicillin","antibiotik",15000,2);
+
+INSERT INTO pasien(no_pasien,nama_pasien,tanggal_lahir,alamat,id_dokter,
+no_obat) VALUE
+(1,"Anton Saputro","1998-11-24","Sukoharjo",4,111),
+(2,"Guntur Prambudi","1996-09-12","Surabaya",3,115),
+(3,"Shila Ayu","1998-11-24","Semarang",2,116),
+(4,"Yogi Putra","1998-11-24","Wonogiri",1,113),
+(5,"Bayu Ari","1998-11-24","Jakarta",5,112);
+
+INSERT INTO konsultasi(keluhan,gejala,solusi,id_dokter,no_pasien,
+no_obat) VALUE
+("pusing-pusing","sering pingsan","istirahat yang cukup",2,1,116),
+("gatal-gatal","kulit memerah","hidarkan dari debu",3,2,116),
+("badan kurang enak","pegal-pegal","kurangi konsumsi gula",1,4,116),
+("mata sulit melihat","mata memerah","kompres dengan air hangat",4,3,116),
+("buat makan sakit","suara serak","kurangi minum es",5,5,116);
+

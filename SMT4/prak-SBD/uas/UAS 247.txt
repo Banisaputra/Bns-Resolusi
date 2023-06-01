@@ -1,0 +1,58 @@
+create database klinik_l200190247;
+
+use klinik_l200190247;
+
+CREATE TABLE Dokter(
+noinduk_dokter INTEGER PRIMARY KEY,
+nama_dokter VARCHAR(45) NOT NULL,
+alamat_dokter VARCHAR(50) NOT NULL,
+spesialisasi VARCHAR(45) NOT NULL);
+
+CREATE TABLE Pasien(
+no_pasien INTEGER PRIMARY KEY,
+nama_pasien VARCHAR(45) NOT NULL,
+alamat_pasien VARCHAR(50) NOT NULL,
+tglLhr_pasien DATETIME NOT NULL);
+
+CREATE TABLE Obat(
+no_obat INTEGER PRIMARY KEY,
+nama_obat VARCHAR(45) UNIQUE NOT NULL,
+jenis_obat VARCHAR(50) NOT NULL,
+harga INTEGER DEFAULT 0 NOT NULL);
+
+CREATE TABLE Konsultasi(
+noinduk_dokterFK INTEGER REFERENCES Dokter(noinduk_dokter) ON DELETE CASCADE ON UPDATE CASCADE,
+no_pasineFK INTEGER REFERENCES Pasien(no_pasien) ON DELETE CASCADE ON UPDATE CASCADE,
+PRIMARY KEY(noinduk_dokterFK, no_pasineFK)21:09 08/07/2021
+,
+keluhan VARCHAR(100) NOT NULL,
+gejala VARCHAR(100) NOT NULL,
+solusi VARCHAR(100) NOT NULL);
+
+CREATE TABLE Pasien_has_obat(
+no_pasienFK INTEGER REFERENCES Pasien(no_pasien) ON DELETE CASCADE ON UPDATE CASCADE,
+no_obatFK INTEGER REFERENCES Obat(no_obat) ON DELETE CASCADE ON UPDATE CASCADE,
+PRIMARY KEY(no_pasineFK, no_obatFK));
+
+
+3.
+select nama_pasien, gejala as 'jenis penyakit', nama_dokter, nama_obat
+from pasien inner join konsultasi inner join dokter inner join obat inner join Pasien_has_obat
+where pasien.no_pasien = Konsultasi.no_pasineFK
+and dokter.noinduk_dokter = konsultasi.noinduk_dokterFK
+and obat.no_obat = Pasien_has_obat.no_obatFK
+and pasien.no_pasien = Pasien_has_obat.no_pasienFK
+group by nama_pasien;
+
+4.
+select nama_pasien, nama_obat, harga from pasien, obat, Pasien_has_obat
+where pasien.no_pasien = Pasien_has_obat.no_pasienFK
+and obat.no_obat = Pasien_has_obat.no_obatFK;
+
+5.
+select nama_pasien, MAX(harga) as 'harga tertinggi', COUNT(obat.nama_obat) as "Jumlah Obat"
+from pasien, obat, Pasien_has_obat
+where pasien.no_pasien = Pasien_has_obat.no_pasienFK
+and obat.no_obat = Pasien_has_obat.no_obatFK
+and no_obatFK >
+all(select nama_pasien from pasien);
