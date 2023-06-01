@@ -1,0 +1,26 @@
+body {
+	font-family: comic sans ms ;
+	background: silver ;
+}
+label {
+	font-size: 12pt;
+	width: 200px;
+    padding-right: 24px;
+
+}
+.form_order{
+	/*membuat lebar form penuh*/
+	box-sizing : border-box;
+	padding: 5px;
+	float:right;
+	width : calc(100% - 200px);
+	font-size: 12pt;
+	margin-bottom: 5px;
+}
+select {
+	box-sizing : border-box;
+	padding: 5px;
+	float:right;
+	width : calc(100% - 200px);
+	font-size: 12pt;
+}
