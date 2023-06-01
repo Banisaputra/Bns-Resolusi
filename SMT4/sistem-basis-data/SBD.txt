@@ -1,0 +1,32 @@
+CREATE TABLE Peminjaman (
+nonasabah VARCHAR(20) PRIMARY KEY,
+namanasabah VARCHAR(60) not null,
+namacabang VARCHAR(60) unique not null,
+jumlah INTEGER not null
+);
+
+CREATE TABLE Penabung (
+nonasabah VARCHAR(20) REFERENCES Peminjaman(nonasabah)ON DELETE CASCADE ON UPDATE CASCADE, 
+namanasabah VARCHAR(60) REFERENCES Peminjaman(namanasabah)ON DELETE CASCADE ON UPDATE CASCADE,
+jumlah INTEGER REFERENCES Peminjaman(jumlah)ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+
+INSERT INTO Peminjaman (nonasabah, namanasabah, namacabang, jumlah) VALUES
+('L-001', 'Anggi', 'Peunayong', '3000'),
+('L-052', 'Priyanto', 'PekanBeda', '4500'),
+('L-125', 'Susilo', 'Lamdingin', '7000');
+
+INSERT INTO Penabung (nonasabah, namanasabah, jumlah) VALUES
+('L-061', 'Abidin', '7500'),
+('L-052', 'Priyanto','5000'),
+('L-175', 'Suryo', '1200');
+
+
+TUGAS :
+1. SELECT * FROM Peminjaman WHERE jumlah <5000;
+2. SELECT namanasabah, namacabang FROM Peminjaman;
+3. SELECT nonasabah FROM Peminjaman WHERE jumlah >4000;
+4. SELECT Peminjaman.namanasabah FROM Peminjaman INNER JOIN Penabung ON Penabung.namanasabah = Peminjaman.namanasabah;
+5. SELECT Peminjaman.namanasabah FROM Peminjaman INNER JOIN Penabung ON Penabung.namanasabah = Peminjaman.namanasabah;
+6. SELECT nonasabah, namanasabah, jumlah FROM Peminjaman UNION SELECT * FROM Penabung WHERE jumlah >2500;
