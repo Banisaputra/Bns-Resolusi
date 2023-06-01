@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kalkulator Sederhana</title>
+</head>
+<body>
+<!--made in bn_script-->
+<script type="text/javascript">
+	function hitung(op)
+	{
+	var bil1 = parseFloat(document.formku.bil1.value);
+	var bil2 = parseFloat(document.formku.bil2.value);  
+	var hasil;
+	if (op=="+") 
+		hasil = bil1+bil2;
+	else if (op=="-") 
+		hasil = bil1-bil2;
+	else if (op=="x") 
+		hasil = bil1*bil2;  
+	else if (op=="/")
+		hasil = bil1/bil2;
+	else if (op=="**")
+		hasil = bil1**bil2;
+	else hasil = "-Pilih Operasi-";
+			document.formku.result.value = hasil;
+	}
+</script>
+
+<h1>Kalkulator Sederhana</h1>
+<span>Jajal wae bree</span>
+<form name="formku">
+	<table>
+		<tr>  
+			<td>Bilangan Pertama</td>
+			<td>:</td>
+			<td><input type="text" name="bil1"></input></td>
+		</tr>  
+			<td>Bilangan Kedua</td>
+			<td>:</td>
+			<td><input type="text" name="bil2"></input></td>
+		</tr>
+		<tr>
+			<td>Hasil Operasi</td>
+			<td>:</td>
+			<td><input type="text" name="result"></input></td>
+		</tr>
+	</table>
+	<input type="button" onclick="hitung('+')" value="+"/>
+	<input type="button" onclick="hitung('-')" value="-"/>
+	<input type="button" onclick="hitung('x')" value="x"/>
+	<input type="button" onclick="hitung('/')" value=":"/>
+	<input type="button" onclick="hitung('**')" value="**"/>
+</form>
+</body></html>
