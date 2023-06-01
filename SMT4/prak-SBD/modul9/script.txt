@@ -1,0 +1,38 @@
+*daftar table dari mysql.user
+=> SELECT user, host, password from mysql.user;
+*membuat user baru
+=> CREATE user 'banisbd'@'localhost' identified by 'adminbani';
+*memberi hak akses
+=> GRANT SELECT, INSERT, UPDATE, DELETE on perbankan.nasabah to 'banisbd'@'localhost';
+=> FLUSH PRIVILEGES;
+=> GRANT SELECT, INSERT, UPDATE, DELETE on perbankan.cabang_bank to 'banisbd'@'localhost';
+=> FLUSH PRIVILEGES;
+*exit dan kemudian login ke user baru
+=> mysql -u banisbd -p
+*memasukan data ke nasabah
+=> use perbankan;
+=> SELECT * FROM nasabah;
+=> INSERT INTO nasabah values('31', 'Susilo', 'Sukoharjo');
+*exit dan login dengan user root
+=> mysql -u root -p
+*menghilangkan akses pada user baru
+=> REVOKE SELECT, INSERT, UPDATE, DELETE on perbankan.cabang_bank from 'banisbd'@'localhost';
+=> FLUSH PRIVILEGES;
+***
+----------------
+*membuat user baru
+=> CREATE user 'bani151'@'localhost' identified by 'adminbani';
+=> GRANT INSERT, UPDATE, DELETE ON perbankan.nasabah TO 'bani151'@'localhost';
+=> FLUSH PRIVILEGES;
+=> GRANT SELECT ON perbankan.cabang_bank TO 'bani151'@'localhost';
+=> FLUSH PRIVILEGES;
+*troubleshoting in new user
+=> mysql -u bani151 -p
+=> user perbankan;
+=> SELECT * FROM nasabah;
+=> INSERT INTO nasabah VALUES('28','Shafa Bani Saputra','Ngawi');
+=> SELECT * FROM cabang_bank;
+=> INSERT INTO cabang_bank VALUES('BRUN','Bank Rut Unit Ngawi','Jl. Sultan 45');
+
+
+

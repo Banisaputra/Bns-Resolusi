@@ -1,0 +1,26 @@
+SELECT nama_nasabah,alamat_nasabah FROM nasabah ORDER BY nama_nasabah;
+#
+SELECT jenis_transaksi,jumlah FROM transaksi WHERE jenis_transaksi LIKE "kredit";
+#
+SELECT jenis_transaksi,jumlah FROM transaksi WHERE tanggal_transaksi LIKE "%2009-11-21%" ORDER BY jumlah;
+#
+SELECT id_nasabahFK,jenis_transaksi,jumlah FROM transaksi WHERE jumlah LIKE 20000;
+#
+SELECT nama_nasabah,alamat_nasabah FROM nasabah WHERE nama_nasabah LIKE "su%";
+#
+#tampilkan tanggal transaksi dan jumlah transaksi yang memiliki jumlah kurang dari 100000, dengan jenis transaksi "DEBIT" dan  
+SELECT tanggal_transaksi,jumlah FROM transaksi WHERE jumlah < 100000 AND jenis_transaksi="debit";
+#
+#tampilkan semua data dari rekening yang memiliki indek kode_cabang "S" dan saldo kurang dari 5jt atau dengan no rekening 110;
+SELECT * FROM rekening WHERE kode_cabangFK LIKE "%S%" AND saldo < 5000000 OR no_rekening=110;
+#
+#tampilkan 5 data dari rekening tanpa 3 data pertama dengan saldo terbanyak 
+SELECT * FROM rekening ORDER BY saldo DESC LIMIT 5 OFFSET 3;
+#
+#tampilakan data dari rekening yang saldonya kosong atau dengan indek kode cabang "Y"
+SELECT * FROM rekening WHERE saldo IS NULL OR kode_cabangFK LIKE "%Y%";
+#
+#tampilkan data dari nasabah dimana nama nasabah terdapat indek "U" atau yang tidak memiliki alamat dan urutkan secara ascending
+dengan menampilakan 5 data saja
+SELECT * FROM nasabah WHERE nama_nasabah LIKE "%u%" OR alamat_nasabah IS NULL ORDER BY nama_nasabah LIMIT 5 OFFSET 0;
+#

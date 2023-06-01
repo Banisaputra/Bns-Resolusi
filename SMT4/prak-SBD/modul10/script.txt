@@ -1,0 +1,45 @@
+SELECT * FROM nasabah WHERE nasabah.id_nasabah IN 
+(select DISTINCT transaksi.id_nasabahFK from 
+transaksi where jenis_transaksi='kredit');
+
+SELECT * FROM nasabah WHERE nasabah.id_nasabah NOT IN 
+(select DISTINCT transaksi.id_nasabahFK from transaksi);
+
+SELECT cabang_bank.kode_cabang, cabang_bank.nama_cabang,
+AVG(rekening.saldo) as rata2 from cabang_bank, rekening where
+cabang_bank.kode_cabang=rekening.kode_cabangFK group by 
+cabang_bank.kode_cabang having rata2 >= ALL(select AVG(saldo) from 
+rekening group by kode_cabangFK);
+
+SELECT * FROM transaksi where jumlah > (SELECT AVG (jumlah) FROM transaksi);
+=====
+SELECT * FROM transaksi where jumlah=(SELECT MAX(jumlah) FROM transaksi);
+
+SELECT * FROM transaksi where jumlah=(SELECT MIN(jumlah) FROM transaksi);
+
+SELECT * from cabang_bank where cabang_bank.kode_cabang
+NOT IN (SELECT rekening.kode_cabangFK from rekening);
+
+SELECT rekening.no_rekening from rekening where rekening.no_rekening IN (select transaksi.no_rekeningFK
+from transaksi where saldo > (select AVG (saldo) FROM rekening));
+
+SELECT nasabah.nama_nasabah, nasabah.id_nasabah FROM
+nasabah WHERE nasabah.id_nasabah IN
+(SELECT transaksi.id_nasabahFK FROM 
+transaksi WHERE transaksi.tanggal_transaksi = '2009-11-22 12:34:43');
+
+SELECT * FROM transaksi where transaksi.id_nasabahFK 
+IN (select DISTINCT nasabah.id_nasabah from nasabah where
+nama_nasabah='Canka Lokananta');
+
+SELECT nasabah.id_nasabah from nasabah where nasabah.id_nasabah 
+IN (SELECT transaksi.id_nasabahFK from transaksi where
+jumlah > (SELECT AVG (jumlah) FROM transaksi));
+
+SELECT * from rekening where rekening.no_rekening
+NOT IN (SELECT transaksi.no_rekeningFK from transaksi);
+
+SELECT nasabah.id_nasabah, nasabah.nama_nasabah FROM
+nasabah WHERE nasabah.id_nasabah IN
+(SELECT transaksi.id_nasabahFK FROM
+transaksi WHERE transaksi.jumlah > 60000);

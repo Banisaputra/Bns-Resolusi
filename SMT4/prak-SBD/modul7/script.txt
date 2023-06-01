@@ -1,0 +1,75 @@
+SELECT nama_cabang, alamat_cabang FROM cabang_bank ORDER BY nama_cabang;
+*--------
+SELECT no_rekening, pin, saldo FROM rekening ORDER BY saldo DESC;
+*--------
+SELECT rekening.no_rekening, nasabah.nama_nasabah, nasabah.alamat_nasabah FROM
+rekening, nasabah, nasabah_has_rekening WHERE
+nasabah.id_nasabah=nasabah_has_rekening.id_nasabahFK AND
+rekening.no_rekening=nasabah_has_rekening.no_rekeningFK ORDER BY nasabah.nama_nasabah;
+*--------
+SELECT rekening.no_rekening, nasabah.nama_nasabah, rekening.saldo FROM
+rekening, nasabah, nasabah_has_rekening WHERE
+nasabah.id_nasabah=nasabah_has_rekening.id_nasabahFK AND
+rekening.no_rekening=nasabah_has_rekening.no_rekeningFK ORDER BY nasabah.nama_nasabah;
+*--------
+**-------
+*1**--------
+SELECT nasabah.nama_nasabah, nasabah.alamat_nasabah, transaksi.jenis_transaksi, transaksi.jumlah FROM
+nasabah JOIN transaksi on(nasabah.id_nasabah=transaksi.id_nasabahFK) WHERE
+jenis_transaksi='kredit' ORDER BY nama_nasabah;
+*2**--------
+SELECT rekening.no_rekening, nasabah.nama_nasabah, transaksi.jenis_transaksi,transaksi.jumlah FROM
+((transaksi INNER JOIN nasabah ON nasabah.id_nasabah=transaksi.id_nasabahFK) INNER JOIN rekening ON rekening.no_rekening=transaksi.no_rekeningFK) WHERE
+tanggal_transaksi LIKE "%2009-11-21%" ORDER BY nama_nasabah;
+*3**--------
+SELECT rekening.no_rekening, nasabah.nama_nasabah, transaksi.jenis_transaksi,transaksi.jumlah FROM
+nasabah NATURAL JOIN transaksi NATURAL JOIN rekening WHERE
+nasabah.id_nasabah=transaksi.id_nasabahFK AND
+rekening.no_rekening=transaksi.no_rekeningFK AND
+jumlah=20000;
+*4**--------
+SELECT rekening.no_rekening, nasabah.nama_nasabah, nasabah.alamat_nasabah FROM
+nasabah JOIN transaksi NATURAL JOIN rekening where nasabah.id_nasabah=transaksi.id_nasabahFK AND
+rekening.no_rekening = transaksi.no_rekeningFK AND
+nama_nasabah LIKE "%SU%" ORDER BY no_rekening;
+*5**--------
+SELECT no_rekening AS "NoRekening", nama_nasabah AS "NamaNasabah", jumlah AS "JumlahTransaksi" FROM
+rekening NATURAL JOIN nasabah NATURAL JOIN transaksi WHERE
+nasabah.id_nasabah=transaksi.id_nasabahFK AND
+rekening.no_rekening=transaksi.no_rekeningFK AND
+jenis_transaksi LIKE "debit" ORDER BY nama_nasabah;
+*6*1**--------
+SELECT nasabah.nama_nasabah, transaksi.jumlah FROM
+nasabah JOIN transaksi WHERE
+nasabah.id_nasabah=transaksi.id_nasabahFK AND
+transaksi.jenis_transaksi="kredit" AND
+transaksi.tanggal_transaksi LIKe "%2009-12%" AND
+nasabah.nama_nasabah LIKE "%a%" ORDER BY id_nasabah;
+*6*2**--------
+SELECT cabang_bank.nama_cabang, rekening.no_rekening, rekening.saldo FROM
+cabang_bank JOIN rekening WHERE
+cabang_bank.kode_cabang=rekening.kode_cabangFK AND
+rekening.saldo<1000000 AND
+cabang_bank.kode_cabang LIKE "%BR%" AND
+rekening.no_rekening<=115 ORDER BY saldo DESC;
+*6*3**--------
+SELECT transaksi.tanggal_transaksi, nasabah.nama_nasabah, transaksi.jumlah FROM
+nasabah JOIN transaksi WHERE
+transaksi.jenis_transaksi="debit" AND
+transaksi.tanggal_transaksi LIKE "%2009-11%" AND
+nasabah.id_nasabah=transaksi.id_nasabahFK AND
+transaksi.jumlah <=100000 ORDER BY jumlah DESC;
+*6*4**--------
+SELECT rekening.no_rekening, transaksi.jenis_transaksi, transaksi.tanggal_transaksi FROM
+rekening JOIN transaksi WHERE
+rekening.no_rekening=transaksi.no_rekeningFK AND
+transaksi.jenis_transaksi="kredit" AND
+rekening.saldo>=1000000 AND
+transaksi.jumlah>=100000 ORDER BY jumlah;
+*6*5**--------
+SELECT nasabah.nama_nasabah, rekening.no_rekening FROM
+nasabah JOIN nasabah_has_rekening NATURAL JOIN rekening WHERE
+rekening.saldo<=500000 AND
+rekening.kode_cabangFK="BRUS" AND
+nasabah.id_nasabah=nasabah_has_rekening.id_nasabahFK AND
+nasabah_has_rekening.no_rekeningFK=rekening.no_rekening ORDER BY id_nasabah;
