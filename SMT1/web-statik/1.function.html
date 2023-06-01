@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Function</title>
+</head>
+<body>
+<!-- 	<script type="text/javascript"> 
+	function diskon(hargaAwal) 
+	{ 
+		var disc; 
+		disc = 0.05* hargaAwal; 
+		hargaDiskon = hargaAwal-disc; 
+		return hargaDiskon; 
+	} 
+	
+	var harga = prompt("Masukkan harga mula-mula (Rp) : ",0);
+	document.write("Harga  = Rp "+harga);
+	document.write("<br/>Harga setelah diskon 5% = Rp " + diskon(harga));
+	</script> --> 
+
+	<!-- <script type="text/javascript">
+	function cetakTeks(x, teks) 
+	{
+		document.write(x+" "+teks + "<br/>");
+	}
+	
+	var kata = prompt("Masukkan sebuah kata ","");
+	var i;
+	for(i=1; i<=5; i++)
+	{
+		cetakTeks(i, kata);
+	}
+	</script>
+ -->
+	<!-- <script type="text/javascript">
+	var bil=prompt("Masukkan bilangan",2)
+	hasil=bil % 2;
+	if (hasil==0) {
+	document.write(bil + "adalah bilangan genap")
+	}
+	else {
+	document.write(bil +" adalah bilangan ganjil!")
+	}
+	</script> -->
+
+	<!-- <script type="text/JavaScript">  
+	function baca()
+	{
+	var nilai = document.myform.word.value;  
+	document.write("Anda telah memasukkan input : " + nilai);
+	}
+	</script>
+
+	<h1>Baca Input</h1>
+	<form name="myform">  Masukkan sebuah input
+		<input type="text" name="word">
+		<input type="button" value="OK" onclick="baca()">
+	</form> -->
+
+	<script type="text/javascript">  
+	function hitung()
+	{
+	var bil1 = parseFloat(document.formku.bil1.value);
+	var bil2 = parseFloat(document.formku.bil2.value);  
+	var op = document.formku.operasi.value;
+	var hasil;
+	if (op=="penjumlahan") 
+		hasil = bil1+bil2;
+	else if (op=="kurang") 
+		hasil = bil1-bil2;
+	else if (op=="kali") 
+		hasil = bil1*bil2;  
+	else if (op=="bagi") 
+		hasil = bil1/bil2;  
+	else hasil = "-Pilih Operasi-";  
+	document.formku.result.value = hasil;
+	//hasil = document.formku.result.value
+	}
+	</script>
+
+	<h1>Kalkulator Sederhana</h1>
+	<form name="formku">  
+		Bilangan Pertama :
+		<input type="text" name="bil1"></input>  
+		<br>Bilangan Kedua :
+		<input type="text" name="bil2"></input>
+		<br>
+		<select name="operasi" onchange="hitung()">
+			<option value="plh">--Pilih Operasi--</option>
+			<option value="penjumlahan">Jumlah</option>
+			<option value="kurang">Kurang</option>
+			<option value="kali">Kali</option>
+			<option value="bagi">Bagi</option>
+		</select>
+		=
+		<input type="text" name="result"></input>
+	<!-- 	<input type="button" name="jumlah" value="+"> -->
+	</form>
+
+</body>
+</html>
